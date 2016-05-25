@@ -1,0 +1,9 @@
+<ion-view title="双色球">
+    <ion-content class="ionList padding">
+        <button class="button button-block button-positive" ng-click="addRandomCastCode()">加一注机选</button>
+        <p class="card item text-center" ng-repeat="castcode in toBuyCastList">{{castcode}}</p>
+        <input ng-model="lotteryOption.multiple" placeholder="倍数" type="number"/>
+        <input ng-model="lotteryOption.periodCount" placeholder="追号" max="{{max}}" type="number" min="1"/>
+        <button class="button button-block button-assertive" ng-click="buy()">投注</button>
+    </ion-content>
+</ion-view>

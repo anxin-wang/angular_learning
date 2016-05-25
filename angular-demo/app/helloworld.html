@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    </head>
+    <body ng-controller="PhoneListCtrl">
+        Your name: <input type="text" ng-model="yourname" placeholder="World">
+        <hr>
+        Hello {{yourname || 'World'}}!
+        
+        <!--Step2 Angular模板-->
+        <h1>Step2 Angular模板</h1>
+         <ul>
+		    <li ng-repeat="phone in phones">
+		      {{phone.name}}
+		    <p>{{phone.snippet}}</p>
+		    </li>
+		  </ul>
+		  <h3>Demo 2</h3>
+         <table>
+		      <tr><th>row number</th></tr>
+		      <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+		  </table>
+		  
+		  
+		  <!--Step3 搜索-->
+		  <h1>Step3 搜索</h1>
+		  <div ng-view></div>
+	<script>
+		function PhoneListCtrl($scope) {
+		  $scope.phones = [
+		    {"name": "Nexus S",
+		     "snippet": "Fast just got faster with Nexus S."},
+		    {"name": "Motorola XOOM™ with Wi-Fi",
+		     "snippet": "The Next, Next Generation tablet."},
+		    {"name": "Sony XOOM™",
+		     "snippet": "The Next, Next Generation tablet."}
+		  ];
+		  $scope.orderProp = 'age';
+		}
+		function PhoneDetailCtrl($scope, $routeParams) {
+		  $scope.phoneId = $routeParams.phoneId;
+		}
+		angular.module('phonecat', []).
+		  config(['$routeProvider', function($routeProvider) {
+		  $routeProvider.
+		      when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
+		      when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
+		      otherwise({redirectTo: '/phones'});
+		}]);
+	</script>
+    </body>
+</html>

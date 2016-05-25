@@ -1,0 +1,40 @@
+<!--登录窗口-->
+<div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+        <h1 class="title">注册</h1>
+        <button class="button button-clear button-positive" ng-click="closeRegister()">登录</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+        <form name="login_form" ng-submit="doRegister(user)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="email" placeholder="请输入邮箱地址..." name="username"  ng-model="user.username" required>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="请输入手机号码..."  ng-model="user.mobile" required>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="请输入密码..."  ng-model="user.password" required>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="确认密码..." ng-model="user.confirmpassword" required>
+                </label>
+                <div class="error" ng-show="login_form.username.$error.required"></div>
+                <ul>
+                    <li ng-repeat="errormsg in errMsg.registerMsg">
+                        {{errormsg.msg}}
+                    </li>
+                </ul>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-positive">注册</button>
+            </div>
+        </form>
+
+    </ion-content>
+
+</div>

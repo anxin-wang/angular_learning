@@ -1,0 +1,11 @@
+<ion-view title="开奖公告">
+  <ion-content>
+
+    <ion-list>
+      <ion-item ng-repeat="code in historyPeriods" type="item-text-wrap">
+        <div>第{{code.periodCode}}期</div>
+        <div>开奖号码：{{code.awardCode}}</div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

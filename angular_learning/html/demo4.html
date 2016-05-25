@@ -1,0 +1,24 @@
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    <script src="../app/controller.js"></script>
+    <title>双向绑定</title>
+</head>
+<body ng-controller="PhoneListCtrl2">
+Search: <input ng-model="query">
+Sort by:
+<select ng-model="orderProp">
+    <option value="name">Alphabetical</option>
+    <option value="age">Newest</option>
+</select>
+
+
+<ul class="phones">
+    <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+        {{phone.name}}
+        <p>{{phone.snippet}}</p>
+    </li>
+</ul>
+</body>
+</html>

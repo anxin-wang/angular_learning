@@ -1,0 +1,28 @@
+<ion-view title="我的彩票">
+  <!--<ion-content class="padding" on-scroll-complete="setInitState()">-->
+  <ion-content class="padding"">
+    <ion-refresher pulling-text="下拉以更新...<br/>上次更新时间:{{refreshTime}}"  on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="list" ng-repeat="lottery in mylotterys">
+
+      <div class="item item-thumbnail-left">
+        <h2>彩票价格:{{lottery.amount}}元</h2>
+        <p>购买时间:{{lottery.submitTime}}</p>
+        <p>彩票种类:{{lottery.lotteryType}}</p>
+        <p>中奖金额:{{lottery.prize}}</p>
+        <p>彩票期次:{{lottery.periodCode}}</p>
+        <p>彩票号码:<span ng-repeat="castCode in lottery.castCodes">{{castCode.castCode}}&nbsp;</span></p>
+      </div>
+
+    </div>
+
+  <!--<button class="button" ng-click="loadMore()">点击加载更多</button>-->
+  <!--ng-if="moreDataCanBeLoaded()"-->
+    <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-hide="infiniteScroll">
+    </ion-infinite-scroll>
+
+
+
+    <div>{{errMsg.authMsg}}</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view title="马上购彩">
+  <ion-content class="padding">
+
+    <div style="clear: both">
+      用户名：{{user.username}}
+    </div>
+
+    <div>
+    <!--<p >-->
+      <a ng-repeat="lottery in lotteries" class="button button-positive icon icon-right ion-chevron-right indexMenu"
+         ng-click="checkLoginAndGo(lottery)"
+         ng-href>{{lottery.name}}<br/>
+        本期<br/>{{lottery.currentPeriod.periodCode}}<br/>
+        {{lottery.ad_short}}
+      </a>
+    <!--</p>-->
+    </div>
+
+  </ion-content>
+</ion-view>
+
