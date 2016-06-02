@@ -1,0 +1,1 @@
+这个文件夹是一个angular的模板，angular项目由此创建。包括angular-demo也是由此变化而来。
