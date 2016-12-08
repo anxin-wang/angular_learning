@@ -3,8 +3,8 @@
 <head>
 
     <title>Modal Window Directive</title>
-    <script src="../angular.min.js"></script>
-    <script src="../app/modal.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="../app/directives/modal.js"></script>
     <style>
         .modal-overlay {
             position: absolute;
@@ -24,10 +24,11 @@
             left: 50%;
             /*transform: translate(-50%, -50%);*/
             transition: transform 0.5s;
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255, 255, 255, 0.5);
         }
-        .modal-background:hover{
-            transform: scale(2,1);
+
+        .modal-background:hover {
+            transform: scale(2, 1);
             transform: translate(-50%, -50%);
         }
 
@@ -50,16 +51,21 @@
 <div ng-controller='ModalCtrl'>
     <button ng-click='toggleModal()'>Open Modal</button>
     <modal-window show='modalShown' width='400px' height='60%'>
-        <p>Hello Simple Modal Window<p>
+        <p>Hello Simple Modal Window
+
+        <p>
     </modal-window>
 </div>
 
 
-<script type="text/ng-template" id="modal.html"> <div ng-show='show'>
-    <div class='modal-overlay' ng-click='hideModal()'></div> <div class='modal-background' ng-style='windowStyle'>
-    <div class='modal-close' ng-click='hideModal()'>X</div>
-    <div class='modal-content' ng-transclude></div> </div>
-</div>
+<script type="text/ng-template" id="modal.html">
+    <div ng-show='show'>
+        <div class='modal-overlay' ng-click='hideModal()'></div>
+        <div class='modal-background' ng-style='windowStyle'>
+            <div class='modal-close' ng-click='hideModal()'>X</div>
+            <div class='modal-content' ng-transclude></div>
+        </div>
+    </div>
 </script>
 
 

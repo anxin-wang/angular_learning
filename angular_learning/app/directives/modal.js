@@ -26,6 +26,7 @@ app.directive('modalWindow', function() {
 app.controller('ModalCtrl', ['$scope', function($scope) {
     $scope.modalShown = false;
     $scope.toggleModal = function() {
-        $scope.modalShown = !$scope.modalShown; };
+        $scope.modalShown = !$scope.modalShown;
+    };
 }
 ]);
